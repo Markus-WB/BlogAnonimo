@@ -1,0 +1,168 @@
+/* Estilos generales */
+
+/* Configuración del tipo de fuente, márgenes y relleno del cuerpo */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 33px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+.visitas {
+  float: right;
+  font-family: "Arial", sans-serif;
+  font-size: 24px;
+}
+
+/* Estilos de navegación */
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos del contenido principal */
+main {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+.container {
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.post-container {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+h3 {
+  color: #333;
+}
+
+.post-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.autor,
+.autor-comentario,
+.fecha,
+.fecha-comentario {
+  font-style: italic;
+}
+
+.fecha,
+.fecha-comentario {
+  font-size: 14px;
+}
+
+.comentarios-container {
+  margin-top: 20px;
+}
+
+.comentarios h4 {
+  margin-bottom: 10px;
+}
+
+.comentario-container {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comentario-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 5px;
+}
+
+/* Estilos del pie de página */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Estilos del formulario de nueva publicación y comentarios */
+#nueva-publicacion {
+  margin-top: 20px;
+}
+
+#nueva-publicacion h2 {
+  color: #333;
+}
+
+#nueva-publicacion form {
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+#nueva-publicacion label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#nueva-publicacion input,
+#nueva-publicacion textarea,
+.nuevo-comentario-form textarea {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+  resize: none;
+}
+
+#nueva-publicacion button,
+.nuevo-comentario-form button,
+.btn-comentario {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+#nueva-publicacion button:hover,
+.nuevo-comentario-form button:hover,
+.btn-comentario:hover {
+  background-color: #555;
+}
+
+#nuevo-comentario textarea {
+  resize: none;
+  height: 200px;
+}

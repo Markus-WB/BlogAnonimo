@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título de la página y enlace al archivo CSS -->
+  <title>Blog Anónimo</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}">
+  <!-- Script para la función de comentar -->
+  <script>
+    function comentar(postId) {
+      var url = '/create_comment/' + postId;
+      window.location.href = url;
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Nombre del Blog</h1>
+    <div class="visitas">Nº Visitas: {{ counter.counter  | int }}<span id="contador-visitas"></span></div>
+  </header>
+
+  <main>
+    <section id="publicaciones">
+      <h2>Publicaciones</h2>
+      <div class="container">
+        {% for post in posts %}
+        <div class="post-container">
+          <article>
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            <div class="post-info">
+              <p class="autor"><em>Anónimo</em></p>
+              <p class="fecha">{{ post.tiempo.strftime("%d de %B de %Y %H:%M") }}</p>
+            </div>
+          </article>
+          <div class="comentarios-container">
+            <h4>Comentarios</h4>
+            {% for comment in comments %}
+            {% if comment.post_id == post.post_id %}
+            <div class="comentario-container">
+              <p class="comentario">{{ comment.content }}</p>
+              <div class="comentario-info">
+                <p class="autor-comentario"><em>Anónimo</em></p>
+                <p class="fecha-comentario">{{ comment.tiempo.strftime("%d de %B de %Y %H:%M") }}</p>
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <button class="btn-comentario" onclick="toggleForm(this)">Añadir comentario</button>
+            <form class="nuevo-comentario-form" style="display: none;" action="/create_comment/{{ post.post_id }}" method="POST">
+              <br>
+              <label for="content">Escribe aquí tu comentario:</label>
+              <textarea id="content" name="content" rows="5"></textarea>
+              <button type="submit">Publicar</button>
+            </form>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section id="nueva-publicacion">
+      <h2>Nueva publicación</h2>
+      <form action="/create_post" method="POST">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo">
+
+        <label for="publicacion">Contenido:</label>
+        <textarea id="publicacion" name="publicacion" rows="10"></textarea>
+
+        <button type="submit">Publicar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Pie de página -->
+    <p>Blog Anónimo - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    // Función para mostrar/ocultar el formulario de comentarios
+    function toggleForm(button) {
+      const form = button.nextElementSibling;
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Título de la página y enlace al archivo CSS -->
+  <title>Blog Anónimo</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilos.css') }}">
+</head>
+<body>
+   <header>
+    <h1>Nombre del Blog</h1>
+    <div class="visitas">Nº Visitas: X<span id="contador-visitas"></span></div>
+  </header>
+
+  <section id="publicaciones">
+    <div class="container">
+      <div class="post-container">
+        <article>
+          <h3>Error inesperado</h3>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
